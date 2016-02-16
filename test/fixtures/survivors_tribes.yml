@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  survivor_id: 
+  tribe_id: 
+
+two:
+  survivor_id: 
+  tribe_id: 
