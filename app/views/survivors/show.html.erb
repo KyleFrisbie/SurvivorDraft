@@ -6,6 +6,10 @@
 </p>
 
 <p>
+  <%= image_tag @survivor.photo_url %>
+</p>
+
+<p>
   <strong>Age:</strong>
   <%= @survivor.age %>
 </p>
@@ -13,11 +17,6 @@
 <p>
   <strong>Residence:</strong>
   <%= @survivor.residence %>
-</p>
-
-<p>
-  <strong>Photo url:</strong>
-  <%= @survivor.photo_url %>
 </p>
 
 <p>
@@ -29,6 +28,30 @@
   <strong>Elimination number:</strong>
   <%= @survivor.elimination_number %>
 </p>
+
+<p>
+  <strong>Seasons:</strong>
+</p>
+<table>
+  <thead>
+  <tr>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @survivor.seasons.each do |season| %>
+      <tr>
+        <td><%= season.number %></td>
+        <td><%= season.name %></td>
+        <td><%= season.location %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_survivor_path(@survivor) %> |
 <%= link_to 'Back', survivors_path %>

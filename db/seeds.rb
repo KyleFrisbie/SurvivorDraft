@@ -1,7 +1,217 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Player.create!([
+  {name: "David Bass", points: nil, place: nil, wins: nil, losses: nil},
+  {name: "Lauren Brewer Bass", points: nil, place: nil, wins: nil, losses: nil},
+  {name: "Alyssa Frisbie", points: nil, place: nil, wins: nil, losses: nil},
+  {name: "Kyle Frisbie", points: nil, place: nil, wins: nil, losses: nil}
+])
+Player::HABTM_Survivors.create!([
+  {player_id: 1, survivor_id: 3},
+  {player_id: 1, survivor_id: 5},
+  {player_id: 1, survivor_id: 7},
+  {player_id: 1, survivor_id: 12},
+  {player_id: 1, survivor_id: 18},
+  {player_id: 2, survivor_id: 4},
+  {player_id: 2, survivor_id: 8},
+  {player_id: 2, survivor_id: 11},
+  {player_id: 2, survivor_id: 16},
+  {player_id: 2, survivor_id: 18},
+  {player_id: 3, survivor_id: 3},
+  {player_id: 3, survivor_id: 6},
+  {player_id: 3, survivor_id: 9},
+  {player_id: 3, survivor_id: 11},
+  {player_id: 3, survivor_id: 15},
+  {player_id: 4, survivor_id: 1},
+  {player_id: 4, survivor_id: 2},
+  {player_id: 4, survivor_id: 3},
+  {player_id: 4, survivor_id: 13},
+  {player_id: 4, survivor_id: 17}
+])
+PlayersSurvivors.create!([
+  {player_id: 1, survivor_id: 3},
+  {player_id: 1, survivor_id: 5},
+  {player_id: 1, survivor_id: 7},
+  {player_id: 1, survivor_id: 12},
+  {player_id: 1, survivor_id: 18},
+  {player_id: 2, survivor_id: 4},
+  {player_id: 2, survivor_id: 8},
+  {player_id: 2, survivor_id: 11},
+  {player_id: 2, survivor_id: 16},
+  {player_id: 2, survivor_id: 18},
+  {player_id: 3, survivor_id: 3},
+  {player_id: 3, survivor_id: 6},
+  {player_id: 3, survivor_id: 9},
+  {player_id: 3, survivor_id: 11},
+  {player_id: 3, survivor_id: 15},
+  {player_id: 4, survivor_id: 1},
+  {player_id: 4, survivor_id: 2},
+  {player_id: 4, survivor_id: 3},
+  {player_id: 4, survivor_id: 13},
+  {player_id: 4, survivor_id: 17}
+])
+Season.create!([
+  {number: 32, name: "Kaoh Rong", location: "Cambodia"}
+])
+Season::HABTM_Survivors.create!([
+  {season_id: 1, survivor_id: 1},
+  {season_id: 1, survivor_id: 2},
+  {season_id: 1, survivor_id: 3},
+  {season_id: 1, survivor_id: 4},
+  {season_id: 1, survivor_id: 5},
+  {season_id: 1, survivor_id: 6},
+  {season_id: 1, survivor_id: 7},
+  {season_id: 1, survivor_id: 8},
+  {season_id: 1, survivor_id: 9},
+  {season_id: 1, survivor_id: 10},
+  {season_id: 1, survivor_id: 11},
+  {season_id: 1, survivor_id: 12},
+  {season_id: 1, survivor_id: 13},
+  {season_id: 1, survivor_id: 14},
+  {season_id: 1, survivor_id: 15},
+  {season_id: 1, survivor_id: 16},
+  {season_id: 1, survivor_id: 17},
+  {season_id: 1, survivor_id: 18}
+])
+SeasonsSurvivors.create!([
+  {season_id: 1, survivor_id: 1},
+  {season_id: 1, survivor_id: 2},
+  {season_id: 1, survivor_id: 3},
+  {season_id: 1, survivor_id: 4},
+  {season_id: 1, survivor_id: 5},
+  {season_id: 1, survivor_id: 6},
+  {season_id: 1, survivor_id: 7},
+  {season_id: 1, survivor_id: 8},
+  {season_id: 1, survivor_id: 9},
+  {season_id: 1, survivor_id: 10},
+  {season_id: 1, survivor_id: 11},
+  {season_id: 1, survivor_id: 12},
+  {season_id: 1, survivor_id: 13},
+  {season_id: 1, survivor_id: 14},
+  {season_id: 1, survivor_id: 15},
+  {season_id: 1, survivor_id: 16},
+  {season_id: 1, survivor_id: 17},
+  {season_id: 1, survivor_id: 18}
+])
+Survivor.create!([
+  {name: "Anna Khait", age: 26, residence: "Brooklyn, NY", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_annakhait.jpg", fantasy: false, elimination_number: nil},
+  {name: "Jennifer Lanzetti", age: 38, residence: "Salt Lake City, Utah", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_jenniferlanzetti.jpg", fantasy: false, elimination_number: nil},
+  {name: "Elisabeth Markham", age: 27, residence: "New York, N.Y", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_elisabethmarkham.jpg", fantasy: false, elimination_number: nil},
+  {name: "Debbie Wanner", age: 49, residence: "Reading, Penn", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_debbiewanner.jpg", fantasy: false, elimination_number: nil},
+  {name: "Alecia Holden", age: 24, residence: "Dallas", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_aleciaholden.jpg", fantasy: false, elimination_number: nil},
+  {name: "Cydney Gillon", age: 23, residence: "Douglasville, Ga", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_cydneygillon.jpg", fantasy: false, elimination_number: nil},
+  {name: "Neal Gottlieb", age: 38, residence: "Sausalito, Calif", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_nealgottlieb.jpg", fantasy: false, elimination_number: nil},
+  {name: "Joseph Del Campo", age: 72, residence: "Vero Beach, Fla", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_josephdelcampo.jpg", fantasy: false, elimination_number: nil},
+  {name: "Michele Fitzgerald", age: 24, residence: "Freehold, N.J", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_michelefitzgerald.jpg", fantasy: false, elimination_number: nil},
+  {name: "Darnell Hamilton", age: 27, residence: "Chicago", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_darnellhamilton.jpg", fantasy: false, elimination_number: nil},
+  {name: "Kyle Jason", age: 31, residence: "Detroit", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_kylejason.jpg", fantasy: false, elimination_number: nil},
+  {name: "Nick Maiorano", age: 30, residence: "Redondo Beach, Calif", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_nickmaiorano.jpg", fantasy: false, elimination_number: nil},
+  {name: "Scot Pollard", age: 40, residence: "Carmel, Ind", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_scotpollard.jpg", fantasy: false, elimination_number: nil},
+  {name: "Caleb Reynolds", age: 28, residence: "Hopkinsville, Ky", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_calebreynolds.jpg", fantasy: false, elimination_number: nil},
+  {name: "Julia Sokolowski", age: 19, residence: "Boston, Mass", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_juliasokolowski.jpg", fantasy: false, elimination_number: nil},
+  {name: "Tai Trang", age: 51, residence: "San Francisco", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_taitrang.jpg", fantasy: false, elimination_number: nil},
+  {name: "Aubry Bracco", age: 29, residence: "Cambridge, Mass", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_aubrybraco.jpg", fantasy: false, elimination_number: nil},
+  {name: "Peter Baggenstos", age: 34, residence: "Minneapolis, Minn", photo_url: "http://wwwimage.cbsstatic.com/thumbnails/photos/w170-h215/cast/svr32_cast_800x1000_peterbaggenstos.jpg", fantasy: false, elimination_number: nil}
+])
+Survivor::HABTM_Players.create!([
+  {player_id: 1, survivor_id: 3},
+  {player_id: 1, survivor_id: 5},
+  {player_id: 1, survivor_id: 7},
+  {player_id: 1, survivor_id: 12},
+  {player_id: 1, survivor_id: 18},
+  {player_id: 2, survivor_id: 4},
+  {player_id: 2, survivor_id: 8},
+  {player_id: 2, survivor_id: 11},
+  {player_id: 2, survivor_id: 16},
+  {player_id: 2, survivor_id: 18},
+  {player_id: 3, survivor_id: 3},
+  {player_id: 3, survivor_id: 6},
+  {player_id: 3, survivor_id: 9},
+  {player_id: 3, survivor_id: 11},
+  {player_id: 3, survivor_id: 15},
+  {player_id: 4, survivor_id: 1},
+  {player_id: 4, survivor_id: 2},
+  {player_id: 4, survivor_id: 3},
+  {player_id: 4, survivor_id: 13},
+  {player_id: 4, survivor_id: 17}
+])
+Survivor::HABTM_Tribes.create!([
+  {survivor_id: 3, tribe_id: 1},
+  {survivor_id: 4, tribe_id: 1},
+  {survivor_id: 8, tribe_id: 1},
+  {survivor_id: 17, tribe_id: 1},
+  {survivor_id: 18, tribe_id: 1},
+  {survivor_id: 2, tribe_id: 2},
+  {survivor_id: 5, tribe_id: 2},
+  {survivor_id: 6, tribe_id: 2},
+  {survivor_id: 10, tribe_id: 2},
+  {survivor_id: 11, tribe_id: 2},
+  {survivor_id: 13, tribe_id: 2},
+  {survivor_id: 1, tribe_id: 3},
+  {survivor_id: 9, tribe_id: 3},
+  {survivor_id: 12, tribe_id: 3},
+  {survivor_id: 14, tribe_id: 3},
+  {survivor_id: 15, tribe_id: 3},
+  {survivor_id: 16, tribe_id: 3}
+])
+Survivor::HABTM_Seasons.create!([
+  {season_id: 1, survivor_id: 1},
+  {season_id: 1, survivor_id: 2},
+  {season_id: 1, survivor_id: 3},
+  {season_id: 1, survivor_id: 4},
+  {season_id: 1, survivor_id: 5},
+  {season_id: 1, survivor_id: 6},
+  {season_id: 1, survivor_id: 7},
+  {season_id: 1, survivor_id: 8},
+  {season_id: 1, survivor_id: 9},
+  {season_id: 1, survivor_id: 10},
+  {season_id: 1, survivor_id: 11},
+  {season_id: 1, survivor_id: 12},
+  {season_id: 1, survivor_id: 13},
+  {season_id: 1, survivor_id: 14},
+  {season_id: 1, survivor_id: 15},
+  {season_id: 1, survivor_id: 16},
+  {season_id: 1, survivor_id: 17},
+  {season_id: 1, survivor_id: 18}
+])
+SurvivorsTribes.create!([
+  {survivor_id: 3, tribe_id: 1},
+  {survivor_id: 4, tribe_id: 1},
+  {survivor_id: 8, tribe_id: 1},
+  {survivor_id: 17, tribe_id: 1},
+  {survivor_id: 18, tribe_id: 1},
+  {survivor_id: 2, tribe_id: 2},
+  {survivor_id: 5, tribe_id: 2},
+  {survivor_id: 6, tribe_id: 2},
+  {survivor_id: 10, tribe_id: 2},
+  {survivor_id: 11, tribe_id: 2},
+  {survivor_id: 13, tribe_id: 2},
+  {survivor_id: 1, tribe_id: 3},
+  {survivor_id: 9, tribe_id: 3},
+  {survivor_id: 12, tribe_id: 3},
+  {survivor_id: 14, tribe_id: 3},
+  {survivor_id: 15, tribe_id: 3},
+  {survivor_id: 16, tribe_id: 3}
+])
+Tribe.create!([
+  {name: "Brains", tribe_generation: 1, immunity_wins: 0, reward_wins: 0},
+  {name: "Brawn", tribe_generation: 1, immunity_wins: 0, reward_wins: 0},
+  {name: "Beauty", tribe_generation: 1, immunity_wins: 0, reward_wins: 0}
+])
+Tribe::HABTM_Survivors.create!([
+  {survivor_id: 3, tribe_id: 1},
+  {survivor_id: 4, tribe_id: 1},
+  {survivor_id: 8, tribe_id: 1},
+  {survivor_id: 17, tribe_id: 1},
+  {survivor_id: 18, tribe_id: 1},
+  {survivor_id: 2, tribe_id: 2},
+  {survivor_id: 5, tribe_id: 2},
+  {survivor_id: 6, tribe_id: 2},
+  {survivor_id: 10, tribe_id: 2},
+  {survivor_id: 11, tribe_id: 2},
+  {survivor_id: 13, tribe_id: 2},
+  {survivor_id: 1, tribe_id: 3},
+  {survivor_id: 9, tribe_id: 3},
+  {survivor_id: 12, tribe_id: 3},
+  {survivor_id: 14, tribe_id: 3},
+  {survivor_id: 15, tribe_id: 3},
+  {survivor_id: 16, tribe_id: 3}
+])

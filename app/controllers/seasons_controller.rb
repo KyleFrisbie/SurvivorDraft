@@ -14,10 +14,13 @@ class SeasonsController < ApplicationController
 
   def new
     @season = Season.new
-    respond_with(@season)
+    @survivors = Survivor.all
+    respond_with(@season, @survivors)
   end
 
   def edit
+    @survivors = Survivor.all
+    respond_with(@survivors)
   end
 
   def create
@@ -42,6 +45,6 @@ class SeasonsController < ApplicationController
     end
 
     def season_params
-      params.require(:season).permit(:number, :name, :location)
+      params.require(:season).permit(:number, :name, :location, :survivor_ids => [])
     end
 end

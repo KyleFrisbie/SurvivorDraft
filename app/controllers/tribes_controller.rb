@@ -14,10 +14,13 @@ class TribesController < ApplicationController
 
   def new
     @tribe = Tribe.new
-    respond_with(@tribe)
+    @survivors = Survivor.all
+    respond_with(@tribe, @survivors)
   end
 
   def edit
+    @survivors = Survivor.all
+    respond_with(@survivors)
   end
 
   def create
@@ -42,6 +45,6 @@ class TribesController < ApplicationController
     end
 
     def tribe_params
-      params.require(:tribe).permit(:name, :tribe_generation)
+      params.require(:tribe).permit(:name, :tribe_generation, :immunity_wins, :reward_wins, :survivor_ids => [])
     end
 end

@@ -14,10 +14,13 @@ class PlayersController < ApplicationController
 
   def new
     @player = Player.new
-    respond_with(@player)
+    @survivors = Survivor.all
+    respond_with(@player, @survivors)
   end
 
   def edit
+    @survivors = Survivor.all
+    respond_with(@survivors)
   end
 
   def create
@@ -42,6 +45,6 @@ class PlayersController < ApplicationController
     end
 
     def player_params
-      params.require(:player).permit(:name, :points, :place, :wins, :losses)
+      params.require(:player).permit(:name, :points, :place, :wins, :losses, :survivor_ids => [])
     end
 end

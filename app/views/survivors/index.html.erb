@@ -2,31 +2,37 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Residence</th>
-      <th>Photo url</th>
-      <th>Fantasy</th>
-      <th>Elimination number</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Age</th>
+    <th>Residence</th>
+    <th>Tribe</th>
+    <th>Fantasy</th>
+    <th>Elimination number</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @survivors.each do |survivor| %>
+  <% @survivors.each do |survivor| %>
       <tr>
-        <td><%= survivor.name %></td>
+        <td><strong><%= survivor.name %></strong></td>
+        <td></strong><%= image_tag survivor.photo_url %></td>
         <td><%= survivor.age %></td>
         <td><%= survivor.residence %></td>
-        <td><%= survivor.photo_url %></td>
+        <td>
+            <% survivor.tribes.each do |tribe| %>
+                <p><%= tribe.name %></p>
+            <% end %>
+        </td>
         <td><%= survivor.fantasy %></td>
         <td><%= survivor.elimination_number %></td>
         <td><%= link_to 'Show', survivor %></td>
         <td><%= link_to 'Edit', edit_survivor_path(survivor) %></td>
-        <td><%= link_to 'Destroy', survivor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', survivor, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

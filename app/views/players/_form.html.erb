@@ -7,6 +7,7 @@
     <%= f.input :place %>
     <%= f.input :wins %>
     <%= f.input :losses %>
+    <%= f.association :survivors, as: :check_boxes %>
   </div>
 
   <div class="form-actions">

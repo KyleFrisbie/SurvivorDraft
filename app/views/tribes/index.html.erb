@@ -5,6 +5,8 @@
     <tr>
       <th>Name</th>
       <th>Tribe generation</th>
+      <th>Immunity wins</th>
+      <th>Reward wins</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +16,8 @@
       <tr>
         <td><%= tribe.name %></td>
         <td><%= tribe.tribe_generation %></td>
+        <td><%= tribe.immunity_wins %></td>
+        <td><%= tribe.reward_wins %></td>
         <td><%= link_to 'Show', tribe %></td>
         <td><%= link_to 'Edit', edit_tribe_path(tribe) %></td>
         <td><%= link_to 'Destroy', tribe, method: :delete, data: { confirm: 'Are you sure?' } %></td>

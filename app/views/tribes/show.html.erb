@@ -10,5 +10,42 @@
   <%= @tribe.tribe_generation %>
 </p>
 
+<p>
+  <strong>Immunity wins:</strong>
+  <%= @tribe.immunity_wins %>
+</p>
+
+<p>
+  <strong>Reward wins:</strong>
+  <%= @tribe.reward_wins %>
+</p>
+
+<p>
+  <strong>Survivors:</strong>
+</p>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Age</th>
+    <th>Residence</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tribe.survivors.each do |survivor| %>
+      <tr>
+        <td><strong><%= survivor.name %></strong></td>
+        <td></strong><%= image_tag survivor.photo_url %></td>
+        <td><%= survivor.age %></td>
+        <td><%= survivor.residence %></td>
+        <td><%= survivor.fantasy %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_tribe_path(@tribe) %> |
 <%= link_to 'Back', tribes_path %>

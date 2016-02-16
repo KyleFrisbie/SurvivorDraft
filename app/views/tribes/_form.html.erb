@@ -4,6 +4,9 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :tribe_generation %>
+    <%= f.input :immunity_wins %>
+    <%= f.input :reward_wins %>
+    <%= f.association :survivors, as: :check_boxes %>
   </div>
 
   <div class="form-actions">

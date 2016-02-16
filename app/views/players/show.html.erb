@@ -25,5 +25,33 @@
   <%= @player.losses %>
 </p>
 
+<p>
+  <strong>Survivors:</strong>
+</p>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Residence</th>
+    <th>Photo url</th>
+    <th>Elimination number</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @player.survivors.each do |survivor| %>
+      <tr>
+        <td><strong><%= survivor.name %></strong></td>
+        <td></strong><%= image_tag survivor.photo_url %></td>
+        <td><%= survivor.age %></td>
+        <td><%= survivor.residence %></td>
+        <td><%= survivor.elimination_number %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
