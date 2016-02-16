@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @survivor.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @survivor.age %>
+</p>
+
+<p>
+  <strong>Residence:</strong>
+  <%= @survivor.residence %>
+</p>
+
+<p>
+  <strong>Photo url:</strong>
+  <%= @survivor.photo_url %>
+</p>
+
+<p>
+  <strong>Fantasy:</strong>
+  <%= @survivor.fantasy %>
+</p>
+
+<p>
+  <strong>Elimination number:</strong>
+  <%= @survivor.elimination_number %>
+</p>
+
+<%= link_to 'Edit', edit_survivor_path(@survivor) %> |
+<%= link_to 'Back', survivors_path %>
