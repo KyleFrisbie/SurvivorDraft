@@ -1,31 +1,45 @@
-<h1>Listing tribes</h1>
+<div class="tribes">
+  <h1>Listing tribes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Tribe generation</th>
-      <th>Immunity wins</th>
-      <th>Reward wins</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tribes.each do |tribe| %>
+  <div class="large-8 columns">
+    <table>
+      <thead>
       <tr>
-        <td><%= tribe.name %></td>
-        <td><%= tribe.tribe_generation %></td>
-        <td><%= tribe.immunity_wins %></td>
-        <td><%= tribe.reward_wins %></td>
-        <td><%= link_to 'Show', tribe %></td>
-        <td><%= link_to 'Edit', edit_tribe_path(tribe) %></td>
-        <td><%= link_to 'Destroy', tribe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Tribe generation</th>
+        <th>Immunity wins</th>
+        <th>Reward wins</th>
+        <th colspan="3"></th>
       </tr>
+      </thead>
+
+      <tbody>
+      <% @tribes.each do |tribe| %>
+          <tr>
+            <td><%= tribe.name %></td>
+            <td><%= tribe.tribe_generation %></td>
+            <td><%= tribe.immunity_wins %></td>
+            <td><%= tribe.reward_wins %></td>
+            <td><%= link_to 'Show', tribe %></td>
+            <td><%= link_to 'Edit', edit_tribe_path(tribe) %></td>
+            <td><%= link_to 'Destroy', tribe, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Tribe', new_tribe_path %>
+  </div>
+
+  <div class="large-4 columns">
+    <%= form_tag(search_tribes_url, method: 'get') do %>
+        <%= label_tag(:q, "Search for tribes:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tribe', new_tribe_path %>
+    <div id="results"></div>
+    <br/>
+  </div>
+</div>

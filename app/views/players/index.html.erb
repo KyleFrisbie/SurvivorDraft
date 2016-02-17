@@ -1,64 +1,46 @@
-<div class="large-8 columns">
+<div class="players">
   <h1>Listing players</h1>
 
-  <table>
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Points</th>
-      <th>Place</th>
-      <th>Wins</th>
-      <th>Losses</th>
-      <th colspan="3"></th>
-    </tr>
-    </thead>
+  <div class="large-8 columns">
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Points</th>
+        <th>Place</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
 
-    <tbody>
-    <% @players.each do |player| %>
-        <tr>
-          <td><%= player.name %></td>
-          <td><%= player.points %></td>
-          <td><%= player.place %></td>
-          <td><%= player.wins %></td>
-          <td><%= player.losses %></td>
-          <td><%= link_to 'Show', player %></td>
-          <td><%= link_to 'Edit', edit_player_path(player) %></td>
-          <td><%= link_to 'Destroy', player, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-        </tr>
+      <tbody>
+      <% @players.each do |player| %>
+          <tr>
+            <td><%= player.name %></td>
+            <td><%= player.points %></td>
+            <td><%= player.place %></td>
+            <td><%= player.wins %></td>
+            <td><%= player.losses %></td>
+            <td><%= link_to 'Show', player %></td>
+            <td><%= link_to 'Edit', edit_player_path(player) %></td>
+            <td><%= link_to 'Destroy', player, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Player', new_player_path %>
+  </div>
+  <div class="large-4 columns">
+    <%= form_tag(search_players_url, method: 'get') do %>
+        <%= label_tag(:q, "Search for players:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
     <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Player', new_player_path %>
+    <div id="results"></div>
+    <br/>
+  </div>
 </div>
-<div class="large-4 columns">
-  <%= form_tag(search_players_url, method: 'get') do %>
-      <%= label_tag(:q, "Search for:") %>
-      <%= text_field_tag(:q) %>
-      <%= submit_tag("Search") %>
-  <% end %>
-  <div id="results"></div><br/>
-</div>
-
-<script>
-  $(document).ready(function() {
-    $("#q".keypress(function (event) {
-      var current = $("#q:text").val();
-      var keypressed = String.fromCharCode(event.which);
-      if(8 === event.keyCode) {
-        current = current.substring(0, current.length - 1);
-      } else {
-        current += String.fromCharCode(event.which);
-      }
-      var query = "http://localhost:3000/players/search.json?q=" + current;
-    }));
-    $.getJSON (query, function(json) {
-      $("#results").empty();
-      for(var i = 0; i < json.length; i++) {
-        $("#results").append(json[i]["name"] + "<br/>");
-      }
-    });
-  });
-</script>

@@ -41,6 +41,11 @@ class SurvivorsController < ApplicationController
     respond_with(@survivor)
   end
 
+  def search
+    @survivors = Survivor.where("name like ?", "%#{params[:q]}%")
+    render :index
+  end
+
   private
     def set_survivor
       @survivor = Survivor.find(params[:id])

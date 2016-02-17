@@ -39,6 +39,11 @@ class TribesController < ApplicationController
     respond_with(@tribe)
   end
 
+  def search
+    @tribes = Tribe.where("name like ?", "%#{params[:q]}%")
+    render :index
+  end
+
   private
     def set_tribe
       @tribe = Tribe.find(params[:id])

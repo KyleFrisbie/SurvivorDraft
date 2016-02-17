@@ -39,6 +39,11 @@ class SeasonsController < ApplicationController
     respond_with(@season)
   end
 
+  def search
+    @seasons = Season.where("name like ?", "%#{params[:q]}%")
+    render :index
+  end
+
   private
     def set_season
       @season = Season.find(params[:id])
