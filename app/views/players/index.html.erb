@@ -1,7 +1,8 @@
-<h1>Listing players</h1>
+<div class="large-8 columns">
+  <h1>Listing players</h1>
 
-<table>
-  <thead>
+  <table>
+    <thead>
     <tr>
       <th>Name</th>
       <th>Points</th>
@@ -10,24 +11,33 @@
       <th>Losses</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @players.each do |player| %>
-      <tr>
-        <td><%= player.name %></td>
-        <td><%= player.points %></td>
-        <td><%= player.place %></td>
-        <td><%= player.wins %></td>
-        <td><%= player.losses %></td>
-        <td><%= link_to 'Show', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= player.name %></td>
+          <td><%= player.points %></td>
+          <td><%= player.place %></td>
+          <td><%= player.wins %></td>
+          <td><%= player.losses %></td>
+          <td><%= link_to 'Show', player %></td>
+          <td><%= link_to 'Edit', edit_player_path(player) %></td>
+          <td><%= link_to 'Destroy', player, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Player', new_player_path %>
+  <%= link_to 'New Player', new_player_path %>
+</div>
+<div class="large-4 columns">
+  <%= form_tag(search_players_url, method: 'get') do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+  <% end %>
+  <div id="results"></div><br/>
+</div>

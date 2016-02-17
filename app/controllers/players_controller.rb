@@ -39,6 +39,11 @@ class PlayersController < ApplicationController
     respond_with(@player)
   end
 
+  def search
+    @players = Player.where("name like ?", "%#{params[:q]}%")
+    render :index
+  end
+
   private
     def set_player
       @player = Player.find(params[:id])
