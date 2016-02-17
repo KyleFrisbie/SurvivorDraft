@@ -18,21 +18,3 @@
 
 $(function(){ $(document).foundation(); });
 
-$(document).ready(function() {
-    $("#q".keypress(function (event) {
-        var current = $("#q:text").val();
-        var keypressed = String.fromCharCode(event.which);
-        if(8 === event.keyCode) {
-            current = current.substring(0, current.length - 1);
-        } else {
-            current += String.fromCharCode(event.which);
-        }
-        var query = "http://localhost:3000/players/search.json?q=" + current;
-    }));
-    $.getJSON (query, function(json) {
-        $("#results").empty();
-        for(var i = 0; i < json.length; i++) {
-            $("#results").append(json[i]["name"] + "<br/>");
-        }
-    });
-});

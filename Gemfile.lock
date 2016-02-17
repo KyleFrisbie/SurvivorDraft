@@ -142,6 +142,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   seed_dump
   simple_form
+  sprockets-rails
   sqlite3
   turbolinks
   tzinfo-data

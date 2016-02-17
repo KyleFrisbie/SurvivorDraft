@@ -47,3 +47,5 @@ gem 'seed_dump'
 gem 'devise'
 
 gem 'cancan'
+
+gem 'sprockets-rails'
